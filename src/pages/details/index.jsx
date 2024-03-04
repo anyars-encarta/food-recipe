@@ -55,17 +55,17 @@ const Details = () => {
         </div>
 
         <div>
-          <span className="text-2xl font-semibold text-black">Ingedients:</span>
+          <span className="text-2xl font-bold text-black">Ingredients:</span>
           <ul className="flex flex-col gap-3">
             {
               recipeDetailsData?.recipe?.ingredients.map((ingredient) => (
                 <li key={ingredient.id}>
-                  <span className="text-2xl font-semibold text-black">
+                  <span className="text-2xl text-black">
                     {ingredient.quantity}
                     {' '}
                     {ingredient.unit}
                   </span>
-                  <span className="text-2xl font-semibold text-black">{ingredient.description}</span>
+                  <span className="text-2xl text-black">{ingredient.description}</span>
                 </li>
               ))
             }
