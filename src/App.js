@@ -5,7 +5,7 @@ import Home from './pages/home';
 import Details from './pages/details';
 import Favorites from './pages/favorites';
 
-function App() {
+const App = () => {
   return (
     <div>
       <div className="min-h-screen p-6 bg-white text-gray-600 text-lg">
