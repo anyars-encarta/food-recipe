@@ -10,7 +10,7 @@ const Home = () => {
     };
 
     if (error) {
-        return <h3 className='lg:text-4xl text-xl text-center text-black'>Oops! Something went wrong. Please try our search again</h3>
+        return <h3 className='lg:text-4xl text-xl text-center text-black'>Oops! Something went wrong. Please try your search again</h3>
     };
 
     return (
