@@ -5,7 +5,7 @@ import BaseUrl from "../../components/base-url";
 
 const Details = () => {
     const { id } = useParams();
-    const { recipeDetailsData, setRecipeDetailsData } = useContext(GlobalContext);
+    const { recipeDetailsData, setRecipeDetailsData, favorites, handleAddToFavorites } = useContext(GlobalContext);
 
     const getRecipeDetails = async () => {
         const response = await fetch(`${BaseUrl.url}/${id}`)
@@ -39,8 +39,13 @@ const Details = () => {
 
                 <div>
                     <button
+                        onClick={() => handleAddToFavorites(recipeDetailsData?.recipe)}
                         className='p-3 px-8 rounded-lg text-sm uppercase font-medium tracking-wider mt-3 inline-block shadow-medium bg-black text-white'>
-                        Save as Favorite
+                        {
+                            favorites && favorites.length > 0 && favorites.findIndex(item => item.id === recipeDetailsData?.recipe?.id) !== -1
+                                ? 'Remove from Favorites'
+                                : 'Add to Favorites'
+                        }
                     </button>
                 </div>
 
