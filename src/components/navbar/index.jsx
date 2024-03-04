@@ -3,17 +3,17 @@ import { NavLink } from "react-router-dom";
 import { GlobalContext } from "../../context";
 
 const Navbar = () => {
-    const { searchParam, setSearchParam } = useContext(GlobalContext)
+    const { searchParam, setSearchParam, handleSubmit } = useContext(GlobalContext)
 
     console.log(searchParam)
-    
+
     return (
         <nav className='flex justify-between item-center py-8 container mx-auto flex-col lg:flex-row gap-5 lg:gap-0'>
             <h2 className='text-2xl font-semibold'>
                 <NavLink to={'/'} className='text-black hover:text-gray-700 duration-300'>Food Recipe</NavLink>
             </h2>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     name="search"
