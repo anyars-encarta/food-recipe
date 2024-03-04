@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { GlobalContext } from "../../context";
 
 const Navbar = () => {
+    const { searchParam, setSearchParam } = useContext(GlobalContext)
+
+    console.log(searchParam)
+    
     return (
         <nav className='flex justify-between item-center py-8 container mx-auto flex-col lg:flex-row gap-5 lg:gap-0'>
             <h2 className='text-2xl font-semibold'>
@@ -12,7 +18,8 @@ const Navbar = () => {
                     type="text"
                     name="search"
                     placeholder="Search recipe..."
-                    value=""
+                    value={searchParam}
+                    onChange={(e) => setSearchParam(e.target.value)}
                     className='bg-white/75 p-3 px-8 rounded-full outline-none lg:w-96 shadow-lg shadow-red-100 focus:shadow-red-200' />
             </form>
             <ul className='flex gap-5'>
