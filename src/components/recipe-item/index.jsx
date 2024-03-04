@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const RecipeItem = ({ item }) => (
   <div className="flex flex-col w-80 overflow-hidden p-5 bg-white/75 shadow-xl gap-5 border-2 rounded-2xl border-white">
-    <div className="height-40 flex justify-center overflow-hidden items-center rounded-xl">
-      <img src={item?.image_url} alt="recipe item" className="block w-full" />
+    <div className="height-40 flex justify-center overflow-hidden items-center rounded-xl group">
+      <img src={item?.image_url} alt="recipe item" className="block w-full group-hover:scale-105 duration-300" />
     </div>
 
     <div>
