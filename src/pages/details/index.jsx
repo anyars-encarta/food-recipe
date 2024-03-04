@@ -14,12 +14,11 @@ const Details = () => {
         if (data?.data) {
             setRecipeDetailsData(data?.data);
         }
-
-        console.log('details data', recipeDetailsData);
     };
 
     useEffect(() => {
         getRecipeDetails();
+        // eslint-disable-next-line
     }, []);
 
     return (
@@ -29,6 +28,7 @@ const Details = () => {
                     <img
                         src={recipeDetailsData?.recipe?.image_url}
                         className='w-full h-full object-cover block group-hover:scale-105 duration-300'
+                        alt='recipe'
                     />
                 </div>
             </div>
