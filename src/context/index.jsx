@@ -1,4 +1,5 @@
 import { useState, createContext } from "react";
+import BaseUrl from "../components/base-url";
 
 export const GlobalContext = createContext(null)
 
@@ -13,7 +14,7 @@ const GlobalState = ({ children }) => {
         event.preventDefault();
         setLoading(true)
         try {
-            const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchParam}`);
+            const response = await fetch(`${BaseUrl.url}?search=${searchParam}`);
             const data = await response.json();
 
             if (data?.data?.recipes) {

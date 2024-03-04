@@ -1,13 +1,14 @@
 import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GlobalContext } from "../../context";
+import BaseUrl from "../../components/base-url";
 
 const Details = () => {
     const {id} = useParams();
     const {recipeDetailsData, setRecipeDetailsData} = useContext(GlobalContext);
 
     const getRecipeDetails = async () => {
-        const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${id}`)
+        const response = await fetch(`${BaseUrl.url}/${id}`)
         const data = await response.json();
         
         if(data?.data) {
