@@ -3,10 +3,11 @@ import { useState, createContext } from "react";
 export const GlobalContext = createContext(null)
 
 const GlobalState = ({ children }) => {
-    const [searchParam, setSearchParam] = useState('')
-    const [loading, setLoading] = useState(false)
-    const [recipes, setRecipes] = useState([])
-    const [error, setError] = useState(null)
+    const [searchParam, setSearchParam] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [recipes, setRecipes] = useState([]);
+    const [error, setError] = useState(null);
+    const [recipeDetailsData, setRecipeDetailsData] = useState(null);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -28,10 +29,17 @@ const GlobalState = ({ children }) => {
         }
     };
 
-    console.log(loading, recipes, error);
-
     return <GlobalContext.Provider
-        value={{ searchParam, setSearchParam, loading, recipes, error, handleSubmit }}>
+        value={{
+            searchParam,
+            setSearchParam,
+            loading,
+            recipes,
+            error,
+            handleSubmit,
+            recipeDetailsData,
+            setRecipeDetailsData
+        }}>
         {children}
     </GlobalContext.Provider>
 }
